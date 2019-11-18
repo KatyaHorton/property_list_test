@@ -9,7 +9,6 @@ const PropertyContainer = () => {
       const result = await fecthPropertyList();
       const newProperties = await result;
       fn(newProperties);
-      console.log("properties", properties);
     }
     getList(setProperties);
   }, []);
