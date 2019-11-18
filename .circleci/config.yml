@@ -35,6 +35,8 @@ jobs:
 
       - run: npm run build
 
+      - run: npm run netlify:deploy
+
       - save_cache:
           paths:
             - node_modules
