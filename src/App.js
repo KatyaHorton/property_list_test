@@ -4,7 +4,7 @@ import PropertyContainer from "./containers/PropertyContainer.js";
 function App() {
   return (
     <div className="Ap">
-      <p>hi</p>
+      <p>Test</p>
       <PropertyContainer />
     </div>
   );
