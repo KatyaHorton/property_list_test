@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { getProperties } from "../services/propertySerivices";
+import { getProperties, addFavAttribute } from "../services/propertySerivices";
 
 const defaultPropertiesContext = {
   properties: [],
@@ -16,7 +16,9 @@ export const PropertiesContextProvider = ({ children }) => {
   const [useFavProperties, setFavProperties] = useState([]);
 
   useEffect(() => {
-    getProperties().then(response => setUseProperties(JSON.parse(response)));
+    getProperties().then(response =>
+      setUseProperties(addFavAttribute(JSON.parse(response)))
+    );
   }, []);
 
   return (

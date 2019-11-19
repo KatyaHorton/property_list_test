@@ -15,3 +15,8 @@ export const getProperties = () => {
     req.send();
   });
 };
+
+export const addFavAttribute = arr => {
+  const newArr = arr.map(obj => ({ ...obj, isFav: "false" }));
+  return newArr;
+};
