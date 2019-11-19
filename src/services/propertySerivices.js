@@ -6,6 +6,5 @@ export async function fecthPropertyList() {
       console.log("Can’t access " + url + " response. Blocked by browser?")
     );
 
-  console.log("response", response);
   return response;
 }
