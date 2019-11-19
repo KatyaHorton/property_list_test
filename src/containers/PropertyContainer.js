@@ -25,7 +25,6 @@ const PropertyContainer = () => {
     <article>
       <ol>
         <li>test</li>
-
         {properties &&
           properties.map(peoperty => <li>{peoperty.buildingName}</li>)}
       </ol>
