@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { fecthPropertyList } from "../services/propertySerivices";
+// import { fecthPropertyList } from "../services/propertySerivices";
 
 const PropertyContainer = () => {
   const [properties, setProperties] = useState([]);
 
   useEffect(() => {
-    async function getList(fn) {
-      const result = await fecthPropertyList();
-      const newProperties = await result;
-      fn(newProperties);
+    let response;
+    async function fecthPropertyList() {
+      const url = `https://my-json-server.typicode.com/roycwc/jsonserver/properties`;
+      response = await fetch(url)
+        .then(response => response.json())
+        .then(response => setProperties(response))
+        .catch(() =>
+          console.log("Can’t access " + url + " response. Blocked by browser?")
+        );
+
+      return response;
     }
-    getList(setProperties);
+
+    fecthPropertyList();
   }, []);
 
   return (
@@ -19,8 +27,8 @@ const PropertyContainer = () => {
         <li>test</li>
         <li>test</li>
         <li>test</li>
-        {/* {properties &&
-          properties.map(peoperty => <li>{peoperty.buildingName}</li>)} */}
+        {properties &&
+          properties.map(peoperty => <li>{peoperty.buildingName}</li>)}
       </ol>
     </article>
   );
