@@ -1,12 +1,14 @@
 import React, { createContext, useEffect, useState } from "react";
-import { getProperties, addFavAttribute } from "../services/propertySerivices";
+import {
+  getProperties,
+  addFavAttribute,
+  changeFavArrtibute
+} from "../services/propertySerivices";
 
 const defaultPropertiesContext = {
   properties: [],
   favProperties: [],
-  toggleFav: () => {
-    console.log("toggled fav from context");
-  }
+  toggleFav: () => {}
 };
 
 export const PropertiesContext = createContext(defaultPropertiesContext);
@@ -21,12 +23,16 @@ export const PropertiesContextProvider = ({ children }) => {
     );
   }, []);
 
+  const changeFavProperties = id => {
+    changeFavArrtibute(useProperties, id, setUseProperties, setFavProperties);
+  };
+
   return (
     <PropertiesContext.Provider
       value={{
         properties: useProperties,
         favProperties: useFavProperties,
-        toggleFav: setUseProperties
+        toggleFav: changeFavProperties
       }}
     >
       {children}
