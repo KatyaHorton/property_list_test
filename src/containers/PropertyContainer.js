@@ -4,21 +4,25 @@ import React, { useEffect, useState } from "react";
 const PropertyContainer = () => {
   const [properties, setProperties] = useState([]);
 
+  const get = url => {
+    return new Promise(function(resolve, reject) {
+      const req = new XMLHttpRequest();
+      req.open("GET", url);
+      req.onload = function() {
+        if (req.status == 200) {
+          resolve(req.response);
+        } else {
+          reject(Error(req.statusText));
+        }
+      };
+      req.send();
+    });
+  };
+
   useEffect(() => {
-    let response;
-    async function fecthPropertyList() {
-      const url = `https://my-json-server.typicode.com/roycwc/jsonserver/properties`;
-      response = await fetch(url)
-        .then(response => response.json())
-        .then(response => setProperties(response))
-        .catch(() =>
-          console.log("Can’t access " + url + " response. Blocked by browser?")
-        );
-
-      return response;
-    }
-
-    fecthPropertyList();
+    get(
+      "https://my-json-server.typicode.com/roycwc/jsonserver/properties"
+    ).then(response => setProperties(JSON.parse(response)));
   }, []);
 
   return (
