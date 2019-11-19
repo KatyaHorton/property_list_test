@@ -4,8 +4,6 @@ import { PropertiesContext } from "../context/propertiesContext";
 const PropertyContainer = () => {
   const context = useContext(PropertiesContext);
 
-  console.log("context", context);
-
   const properties = context.properties;
 
   return (
@@ -13,7 +11,7 @@ const PropertyContainer = () => {
       {properties.length < 1 && <p>Your properties will appear here</p>}
       <ol>
         {properties &&
-          properties.map(peoperty => <li>{peoperty.buildingName}</li>)}
+          properties.map(property => <li>{property.buildingName}</li>)}
       </ol>
     </article>
   );
