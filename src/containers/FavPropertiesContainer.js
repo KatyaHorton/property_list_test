@@ -6,6 +6,7 @@ const FavPropertyContainer = () => {
   const properties = context.favProperties;
   const isDialogOpen = context.isDialogOpen;
   const toggleDialog = context.toggleDialog;
+  const changeFavProperties = context.toggleFav;
 
   return (
     <dialog
@@ -15,7 +16,7 @@ const FavPropertyContainer = () => {
         height: "100%",
         position: "fixed",
         right: 0,
-        backgroundColor: "pink",
+        backgroundColor: "#00B0A8",
         margin: 0,
         padding: 0,
         overflow: "hidden",
@@ -23,13 +24,22 @@ const FavPropertyContainer = () => {
       }}
     >
       <article>
-        <button onClick={toggleDialog}>
-          <span class="close">&times;</span>
-        </button>
-        {properties.length < 1 && <p>Your properties will appear here</p>}
+        <button onClick={toggleDialog}>Close Dialog</button>
+        {properties.length < 1 && (
+          <p>Your favourite properties will appear here</p>
+        )}
         <ol>
           {properties &&
-            properties.map(property => <li>{property.buildingName}</li>)}
+            properties.map(property => (
+              <li>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <h4>{property.buildingName}</h4>
+                  <button onClick={() => changeFavProperties(property.id)}>
+                    <span>&times;</span>
+                  </button>
+                </div>
+              </li>
+            ))}
         </ol>
       </article>
     </dialog>
