@@ -5,12 +5,12 @@ const PropertyContainer = () => {
   const context = useContext(PropertiesContext);
 
   const properties = context.properties;
+  const changeFavProperties = context.toggleFav;
 
-  console.log("properties", properties);
   return (
     <article>
       {properties.length < 1 && <p>Your properties will appear here</p>}
-      <ol>
+      <ul>
         {properties &&
           properties.map(property => (
             <li>
@@ -24,9 +24,14 @@ const PropertyContainer = () => {
                 />
                 <figcaption>{`Apartrment in ${property.districtName}`}</figcaption>
               </figure>
+              <button onClick={() => changeFavProperties(property.id)}>
+                {!property.isFav
+                  ? "Add to Favourites"
+                  : "Remove from Favourites"}
+              </button>
             </li>
           ))}
-      </ol>
+      </ul>
     </article>
   );
 };
