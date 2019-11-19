@@ -5,10 +5,16 @@ const PropertyContainer = () => {
   const context = useContext(PropertiesContext);
 
   const properties = context.properties;
+  const isFavProperties = context.favProperties.length > 0;
   const changeFavProperties = context.toggleFav;
+  const openDialog = context.toggleDialog;
 
   return (
     <article>
+      {isFavProperties && (
+        <button onClick={() => openDialog()}>See Favourite Properties</button>
+      )}
+
       {properties.length < 1 && <p>Your properties will appear here</p>}
       <ul>
         {properties &&

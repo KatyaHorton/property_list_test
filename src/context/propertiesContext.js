@@ -8,7 +8,9 @@ import {
 const defaultPropertiesContext = {
   properties: [],
   favProperties: [],
-  toggleFav: () => {}
+  toggleFav: () => {},
+  setIsDialogOpen: () => {},
+  isDialogOpen: false
 };
 
 export const PropertiesContext = createContext(defaultPropertiesContext);
@@ -16,6 +18,7 @@ export const PropertiesContext = createContext(defaultPropertiesContext);
 export const PropertiesContextProvider = ({ children }) => {
   const [useProperties, setUseProperties] = useState([]);
   const [useFavProperties, setFavProperties] = useState([]);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   useEffect(() => {
     getProperties().then(response =>
@@ -27,12 +30,18 @@ export const PropertiesContextProvider = ({ children }) => {
     changeFavArrtibute(useProperties, id, setUseProperties, setFavProperties);
   };
 
+  const toggleDialog = () => {
+    setIsDialogOpen(!isDialogOpen);
+  };
+
   return (
     <PropertiesContext.Provider
       value={{
         properties: useProperties,
         favProperties: useFavProperties,
-        toggleFav: changeFavProperties
+        toggleFav: changeFavProperties,
+        toggleDialog: toggleDialog,
+        isDialogOpen: isDialogOpen
       }}
     >
       {children}
