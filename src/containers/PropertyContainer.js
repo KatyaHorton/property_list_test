@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { getProperties } from "../services/propertySerivices";
+import React, { useEffect, useState, useContext } from "react";
+import { PropertiesContext } from "../context/propertiesContext";
 
 const PropertyContainer = () => {
-  const [properties, setProperties] = useState([]);
+  const context = useContext(PropertiesContext);
 
-  useEffect(() => {
-    getProperties().then(response => setProperties(JSON.parse(response)));
-  }, []);
+  console.log("context", context);
+
+  const properties = context.properties;
 
   return (
     <article>
+      {properties.length < 1 && <p>Your properties will appear here</p>}
       <ol>
         {properties &&
           properties.map(peoperty => <li>{peoperty.buildingName}</li>)}

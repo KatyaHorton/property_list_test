@@ -1,12 +1,12 @@
 import React from "react";
 import PropertyContainer from "./containers/PropertyContainer.js";
+import { PropertiesContextProvider } from "./context/propertiesContext.js";
 
 function App() {
   return (
-    <div className="Ap">
-      <p>Test</p>
+    <PropertiesContextProvider>
       <PropertyContainer />
-    </div>
+    </PropertiesContextProvider>
   );
 }
 
