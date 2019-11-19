@@ -1,36 +1,31 @@
-import React, { useEffect, useState } from "react";
-// import { fecthPropertyList } from "../services/propertySerivices";
+import React, { useContext } from "react";
+import { PropertiesContext } from "../context/propertiesContext";
 
 const PropertyContainer = () => {
-  const [properties, setProperties] = useState([]);
+  const context = useContext(PropertiesContext);
 
-  const get = url => {
-    return new Promise(function(resolve, reject) {
-      const req = new XMLHttpRequest();
-      req.open("GET", url);
-      req.onload = function() {
-        if (req.status == 200) {
-          resolve(req.response);
-        } else {
-          reject(Error(req.statusText));
-        }
-      };
-      req.send();
-    });
-  };
+  const properties = context.properties;
 
-  useEffect(() => {
-    get(
-      "https://my-json-server.typicode.com/roycwc/jsonserver/properties"
-    ).then(response => setProperties(JSON.parse(response)));
-  }, []);
-
+  console.log("properties", properties);
   return (
     <article>
+      {properties.length < 1 && <p>Your properties will appear here</p>}
       <ol>
-        <li>test</li>
         {properties &&
-          properties.map(peoperty => <li>{peoperty.buildingName}</li>)}
+          properties.map(property => (
+            <li>
+              <h3>{property.buildingName}</h3>
+              <em>{property.districtName}</em>
+              <figure>
+                <img
+                  src={property.propertyPhoto}
+                  style={{ maxHeight: "200px" }}
+                  alt={property.buildingName}
+                />
+                <figcaption>{`Apartrment in ${property.districtName}`}</figcaption>
+              </figure>
+            </li>
+          ))}
       </ol>
     </article>
   );
