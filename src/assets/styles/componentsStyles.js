@@ -119,7 +119,9 @@ export const styles = {
     flexDirection: "row",
     flexWrap: "wrap",
     position: "relative",
-    top: "50px"
+    top: "50px",
+    margin: "5px",
+    padding: 0
   },
   liProperties: {
     listStyle: "none",

@@ -5,7 +5,7 @@ import { TitleText } from "../components/wrappers";
 export const MainHeader = () => {
   return (
     <header style={styles.mainHeader}>
-      <TitleText>List of avaliable properties</TitleText>
+      <TitleText>Your Home</TitleText>
     </header>
   );
 };
