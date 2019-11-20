@@ -23,7 +23,7 @@ export const styles = makeStyles(() => ({
     alignItems: "center",
     justifyContent: "space-around",
     "@media screen and (min-width: 412px)": {
-      width: "250px"
+      width: "230px"
     }
   },
 
@@ -32,11 +32,18 @@ export const styles = makeStyles(() => ({
     minWidth: "300px",
     margin: "0 10px 10px 0",
     backgroundColor: "#f9f9f9",
+    paddingTop: "15px",
     boxShadow: "2px 2px 4px -2px #999",
     "@media screen and (min-width: 412px)": {
-      padding: "10px",
+      padding: "25px 10px",
       height: "auto",
       maxWidth: "500px",
+      width: "97%"
+    },
+    "@media screen and (min-width: 1100px)": {
+      padding: "25px 10px",
+      height: "auto",
+      maxWidth: "350px",
       width: "97%"
     }
   },
@@ -173,7 +180,7 @@ export const styles = makeStyles(() => ({
     position: "fixed",
     top: "0",
     padding: "15px",
-    backgroundColor: "white",
+    backgroundImage: "linear-gradient(to left, #999 , white)",
     width: "100%",
     height: "40px",
     zIndex: 10
