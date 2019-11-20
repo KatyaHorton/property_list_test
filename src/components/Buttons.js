@@ -12,8 +12,9 @@ export const CloseButton = ({ onClick }) => {
   );
 };
 export const FavHeartButton = ({ onClick, isFav }) => {
+  const classes = styles();
   return (
-    <button style={styles.favHeartButton} onClick={onClick}>
+    <button className={classes.favHeartButton} onClick={onClick}>
       {isFav ? <SVGHeartRed /> : <SVGHeartBlack />}
     </button>
   );

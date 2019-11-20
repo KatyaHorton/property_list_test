@@ -13,7 +13,7 @@ export const styles = makeStyles(() => ({
   },
 
   containerSmall: {
-    width: "230px",
+    width: "130px",
     height: "90px",
     backgroundColor: "#f9f9f9",
     boxShadow: "2px 2px 4px -2px #999",
@@ -21,15 +21,24 @@ export const styles = makeStyles(() => ({
     margin: "0 0 10px 0",
     display: "flex",
     alignItems: "center",
-    justifyContent: "space-around"
+    justifyContent: "space-around",
+    "@media screen and (min-width: 412px)": {
+      width: "250px"
+    }
   },
 
   propertySectionLarge: {
-    width: "40vw",
-    width: "400px",
+    width: "100%",
+    minWidth: "300px",
     margin: "0 10px 10px 0",
     backgroundColor: "#f9f9f9",
-    boxShadow: "2px 2px 4px -2px #999"
+    boxShadow: "2px 2px 4px -2px #999",
+    "@media screen and (min-width: 412px)": {
+      padding: "10px",
+      height: "auto",
+      maxWidth: "500px",
+      width: "97%"
+    }
   },
 
   rowCntereSpaceBetween: {
@@ -47,11 +56,17 @@ export const styles = makeStyles(() => ({
     position: "fixed",
     right: 0,
     top: 0,
-    padding: "10px",
+    padding: "10px 3px",
     height: "auto",
-    width: "250px",
+    width: "130px",
     backgroundColor: "white",
-    zIndex: 11
+    zIndex: 11,
+
+    "@media screen and (min-width: 412px)": {
+      padding: "10px",
+      height: "auto",
+      width: "250px"
+    }
   },
   lightColorText: {
     margin: 0,
@@ -108,7 +123,11 @@ export const styles = makeStyles(() => ({
     overflow: "hidden",
     borderRadius: "50%",
     margin: 0,
-    padding: 0
+    padding: 0,
+    display: "none",
+    "@media screen and (min-width: 412px)": {
+      display: "block"
+    }
   },
   smallImg: {
     width: "100%",
@@ -120,10 +139,11 @@ export const styles = makeStyles(() => ({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
+    justifyContent: "center",
     position: "relative",
     top: "50px",
     margin: "5px",
-    padding: 0
+    padding: "5px"
   },
   liProperties: {
     listStyle: "none",
@@ -134,7 +154,13 @@ export const styles = makeStyles(() => ({
     backgroundColor: "#f9f9f9",
     border: "none",
     "&:focus": {
-      backgroundColor: "red"
+      border: "1px solid red"
+    }
+  },
+  favButtonText: {
+    display: "none",
+    "@media screen and (min-width: 412px)": {
+      display: "block"
     }
   },
   attentionText: {
@@ -150,10 +176,6 @@ export const styles = makeStyles(() => ({
     backgroundColor: "white",
     width: "100%",
     height: "40px",
-    zIndex: 10,
-    backgroundColor: "pink",
-    "@media screen and (min-width: 500px)": {
-      backgroundColor: "red"
-    }
+    zIndex: 10
   }
 }));
