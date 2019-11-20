@@ -38,3 +38,19 @@ export const changeFavArrtibute = (arr, id, fn, fn2) => {
   fn(result);
   setFavList(result, fn2);
 };
+
+export const changeFavAttributeIfLoc = (arr, arr2, fn) => {
+  console.log("arr", arr);
+  console.log("arr2", arr2);
+  const result = arr.map(obj => {
+    let item;
+    arr2 &&
+      arr2.map(obj2 => {
+        if (obj.id === obj2.id) {
+          item = obj2;
+        }
+      });
+    return item ? item : obj;
+  });
+  fn(result);
+};

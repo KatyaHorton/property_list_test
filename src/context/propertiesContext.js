@@ -2,7 +2,8 @@ import React, { createContext, useEffect, useState } from "react";
 import {
   getProperties,
   addFavAttribute,
-  changeFavArrtibute
+  changeFavArrtibute,
+  changeFavAttributeIfLoc
 } from "../services/propertySerivices";
 
 const defaultPropertiesContext = {
@@ -24,17 +25,28 @@ export const PropertiesContextProvider = ({ children }) => {
       localStorage.setItem(localItem, JSON.stringify(newItem));
       setState(newItem);
     }
+
     return [loc, setLoc];
   }
 
-  const [useFavProperties, setFavProperties] = useLocalState();
+  const [useFavProperties, setFavProperties] = useLocalState(
+    "useFavProperties"
+  );
   const [useProperties, setUseProperties] = useState([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
-  useEffect(() => {
-    getProperties().then(response =>
-      setUseProperties(addFavAttribute(JSON.parse(response)))
+  const onFetchProperties = r => {
+    const responceWithAddedFav = addFavAttribute(JSON.parse(r));
+    setUseProperties(responceWithAddedFav);
+    changeFavAttributeIfLoc(
+      responceWithAddedFav,
+      useFavProperties,
+      setUseProperties
     );
+  };
+
+  useEffect(() => {
+    getProperties().then(response => onFetchProperties(response));
   }, []);
 
   const changeFavProperties = id => {

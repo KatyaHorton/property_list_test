@@ -12,7 +12,7 @@ const PropertyContainer = () => {
   return (
     <article>
       <MainHeader />
-      {properties.length < 1 ? (
+      {properties && properties.length < 1 ? (
         <p>Your properties will appear here</p>
       ) : (
         <PropertyList
