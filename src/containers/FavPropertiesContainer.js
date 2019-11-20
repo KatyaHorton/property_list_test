@@ -4,7 +4,6 @@ import { FavButton } from "../components/FavButton";
 import {
   RightSideBar,
   PropertySecrionSmall,
-  RowCenterSpaceBetween,
   SubTitleText,
   ColumnCenterSpaceAround,
   MainText,
