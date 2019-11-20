@@ -14,35 +14,37 @@ import { FavHeartButton } from "./Buttons";
 export const PropertyList = ({ properties, changeFavProperties }) => {
   const classes = styles();
   return (
-    <ul className={classes.ulProperties}>
-      {properties &&
-        properties.map(property => (
-          <li className={classes.liProperties}>
-            <PropertySectionLarge>
-              <ImageComponent
-                src={property.propertyPhoto}
-                alt={property.buildingName}
-              />
-
-              <RowCenterSpaceBetween>
-                <AttentionText>{property.buildingName}</AttentionText>
-                <h2>{kFormatter(property.salePrice)}</h2>
-              </RowCenterSpaceBetween>
-              <RowCenterSpaceBetween>
-                <LightText>
-                  <span>
-                    <SVGPin />
-                  </span>
-                  {property.districtName}
-                </LightText>
-                <FavHeartButton
-                  onClick={() => changeFavProperties(property.id)}
-                  isFav={property.isFav}
+    <div className={classes.wrapperContainer}>
+      <ul className={classes.ulProperties}>
+        {properties &&
+          properties.map(property => (
+            <li className={classes.liProperties}>
+              <PropertySectionLarge>
+                <ImageComponent
+                  src={property.propertyPhoto}
+                  alt={property.buildingName}
                 />
-              </RowCenterSpaceBetween>
-            </PropertySectionLarge>
-          </li>
-        ))}
-    </ul>
+
+                <RowCenterSpaceBetween>
+                  <AttentionText>{property.buildingName}</AttentionText>
+                  <h2>{kFormatter(property.salePrice)}</h2>
+                </RowCenterSpaceBetween>
+                <RowCenterSpaceBetween>
+                  <LightText>
+                    <span>
+                      <SVGPin />
+                    </span>
+                    {property.districtName}
+                  </LightText>
+                  <FavHeartButton
+                    onClick={() => changeFavProperties(property.id)}
+                    isFav={property.isFav}
+                  />
+                </RowCenterSpaceBetween>
+              </PropertySectionLarge>
+            </li>
+          ))}
+      </ul>
+    </div>
   );
 };

@@ -142,8 +142,16 @@ export const styles = makeStyles(() => ({
     margin: 0,
     padding: 0
   },
+  wrapperContainer: {
+    width: "100%",
+    height: "100%",
+    display: "flex",
+    alighItems: "center",
+    justifyContent: "center"
+  },
   ulProperties: {
     display: "flex",
+    maxWidth: "1190px",
     flexDirection: "row",
     flexWrap: "wrap",
     justifyContent: "center",
