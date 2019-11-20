@@ -1,74 +1,45 @@
 import React from "react";
-import { SVGHeartBlack, SVGHeartRed, SVGPin } from "../assets/svg/heart";
+import { SVGPin } from "../assets/svg/heart";
 import { kFormatter } from "../helpers/calcHelpers";
-import { PropertySecrionLarge, RowCenterSpaceBetween } from "./wrappers";
+import {
+  PropertySectionLarge,
+  RowCenterSpaceBetween,
+  LightText,
+  AttentionText
+} from "./wrappers";
 import { ImageComponent } from "./ImageComponent";
+import { styles } from "../assets/styles/componentsStyles";
+import { FavHeartButton } from "./Buttons";
 
 export const PropertyList = ({ properties, changeFavProperties }) => {
   return (
-    <ul
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        flexWrap: "wrap",
-        position: "relative",
-        top: "50px"
-      }}
-    >
+    <ul style={styles.ulProperties}>
       {properties &&
         properties.map(property => (
-          <li
-            style={{
-              listStyle: "none",
-              margin: 0,
-              padding: 0
-            }}
-          >
-            <PropertySecrionLarge>
+          <li style={styles.liProperties}>
+            <PropertySectionLarge>
               <ImageComponent
                 src={property.propertyPhoto}
                 alt={property.buildingName}
               />
 
               <RowCenterSpaceBetween>
-                <h3
-                  style={{
-                    color: "#085963",
-                    margin: 0,
-                    padding: 0,
-                    cursor: "pointer"
-                  }}
-                >
-                  {property.buildingName}
-                </h3>
+                <AttentionText>{property.buildingName}</AttentionText>
                 <h2>{kFormatter(property.salePrice)}</h2>
               </RowCenterSpaceBetween>
               <RowCenterSpaceBetween>
-                <p
-                  style={{
-                    fontSize: "0.8em",
-                    color: "#999"
-                  }}
-                >
+                <LightText>
                   <span>
                     <SVGPin />
                   </span>
                   {property.districtName}
-                </p>
-                <button
-                  style={{
-                    backgroundColor: "#f9f9f9",
-                    border: "none",
-                    "&:focus": {
-                      backgroundColor: "red"
-                    }
-                  }}
+                </LightText>
+                <FavHeartButton
                   onClick={() => changeFavProperties(property.id)}
-                >
-                  {property.isFav ? <SVGHeartRed /> : <SVGHeartBlack />}
-                </button>
+                  isFav={property.isFav}
+                />
               </RowCenterSpaceBetween>
-            </PropertySecrionLarge>
+            </PropertySectionLarge>
           </li>
         ))}
     </ul>
