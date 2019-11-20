@@ -5,7 +5,7 @@ export const ImageComponent = ({ src, alt, figcaption }) => {
     <figure
       style={{
         width: "100%",
-        height: "300px",
+        height: "250px",
         overflow: "hidden",
         margin: 0,
         padding: 0
@@ -20,7 +20,31 @@ export const ImageComponent = ({ src, alt, figcaption }) => {
         src={src}
         alt={alt}
       />
-      <figcaption>{figcaption}</figcaption>
+    </figure>
+  );
+};
+export const ImageSmallComponent = ({ src, alt }) => {
+  return (
+    <figure
+      style={{
+        width: "60px",
+        height: "60px",
+        overflow: "hidden",
+        borderRadius: "50%",
+        margin: 0,
+        padding: 0
+      }}
+    >
+      <img
+        style={{
+          width: "100%",
+          height: "100%",
+          margin: 0,
+          padding: 0
+        }}
+        src={src}
+        alt={alt}
+      />
     </figure>
   );
 };

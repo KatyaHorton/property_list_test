@@ -1,43 +1,51 @@
 import React from "react";
+import { SVGHeartGreen, ArrowDown, ArrowUp } from "../assets/svg/heart";
+import { RowCenterSpaceBetween } from "./wrappers";
 
-export const FavButton = ({ onClick, isFavProperties, favPropsNumber }) => {
+export const FavButton = ({
+  onClick,
+  isListOpen,
+  isFavProperties,
+  favPropsNumber
+}) => {
   return (
     <button
       style={{
-        backgroundColor: "#00B0A8",
-        color: "white",
-        border: "none",
-        borderRadius: "6px",
+        color: "#00B0A8",
+        border: "1px solid #00B0A8",
         height: "40px",
-        width: "170px"
+        width: "100%",
+        margin: 0,
+        padding: "0 15px"
       }}
       onClick={() => onClick()}
-      disabled={!isFavProperties}
     >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-around"
-        }}
-      >
-        <strong>Favourites</strong>
-        <p
-          style={{
-            borderRadius: "50%",
-            backgroundColor: "red",
-            width: "20px",
-            height: "20px",
-            margin: 0,
-            padding: 0,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-        >
-          {favPropsNumber}
-        </p>
-      </div>
+      <RowCenterSpaceBetween>
+        <SVGHeartGreen />
+        <RowCenterSpaceBetween>
+          <p>FAVOURITES</p>
+          {isFavProperties && (
+            <p
+              style={{
+                borderRadius: "50%",
+                backgroundColor: "red",
+                width: "20px",
+                height: "20px",
+                margin: 0,
+                padding: 0,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                color: "white",
+                marginLeft: "15px"
+              }}
+            >
+              {favPropsNumber}
+            </p>
+          )}
+        </RowCenterSpaceBetween>
+        {isListOpen ? <ArrowDown /> : <ArrowUp />}
+      </RowCenterSpaceBetween>
     </button>
   );
 };

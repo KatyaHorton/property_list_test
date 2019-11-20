@@ -6,19 +6,28 @@ import { ImageComponent } from "./ImageComponent";
 
 export const PropertyList = ({ properties, changeFavProperties }) => {
   return (
-    <ul style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+    <ul
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        flexWrap: "wrap",
+        position: "relative",
+        top: "50px"
+      }}
+    >
       {properties &&
         properties.map(property => (
           <li
             style={{
-              listStyle: "none"
+              listStyle: "none",
+              margin: 0,
+              padding: 0
             }}
           >
             <PropertySecrionLarge>
               <ImageComponent
                 src={property.propertyPhoto}
                 alt={property.buildingName}
-                figcaption={`Apartrment in ${property.districtName}`}
               />
 
               <RowCenterSpaceBetween>
