@@ -6,8 +6,8 @@ import FavPropertyContainer from "./containers/FavPropertiesContainer.js";
 function App() {
   return (
     <PropertiesContextProvider>
-      <FavPropertyContainer />
       <PropertyContainer />
+      <FavPropertyContainer />
     </PropertiesContextProvider>
   );
 }

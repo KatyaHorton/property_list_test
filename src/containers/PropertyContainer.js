@@ -1,19 +1,27 @@
 import React, { useContext } from "react";
 import { PropertiesContext } from "../context/propertiesContext";
 import { PropertyList } from "../components/PropertyList";
-import { FavButton } from "../components/FavButton";
+import { TitleText } from "../components/wrappers";
 
 const PropertyContainer = () => {
   const context = useContext(PropertiesContext);
-
   const properties = context.properties;
-  const favPropsNumber = context.favProperties.length;
-  const isFavProperties = favPropsNumber > 0;
   const changeFavProperties = context.toggleFav;
-  const openDialog = context.toggleDialog;
 
   return (
-    <article style={{ display: "flex" }}>
+    <article>
+      <header
+        style={{
+          position: "fixed",
+          top: "0",
+          padding: "15px",
+          backgroundColor: "white",
+          width: "100%",
+          height: "40px"
+        }}
+      >
+        <TitleText>List of avaliable properties</TitleText>
+      </header>
       {properties.length < 1 ? (
         <p>Your properties will appear here</p>
       ) : (
@@ -22,11 +30,6 @@ const PropertyContainer = () => {
           changeFavProperties={changeFavProperties}
         />
       )}
-      <FavButton
-        onClick={openDialog}
-        isFavProperties={isFavProperties}
-        favPropsNumber={favPropsNumber}
-      />
     </article>
   );
 };
