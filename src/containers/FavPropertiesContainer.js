@@ -33,7 +33,7 @@ const FavPropertyContainer = () => {
       />
       {isListOpen && (
         <section>
-          {properties.length < 1 && (
+          {properties && properties.length < 1 && (
             <PropertySecrionSmall>
               <LightText>Your favourite properties will appear here</LightText>
             </PropertySecrionSmall>
