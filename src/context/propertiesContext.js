@@ -16,8 +16,19 @@ const defaultPropertiesContext = {
 export const PropertiesContext = createContext(defaultPropertiesContext);
 
 export const PropertiesContextProvider = ({ children }) => {
+  function useLocalState(localItem) {
+    const [loc, setState] = useState(
+      JSON.parse(localStorage.getItem(localItem))
+    );
+    function setLoc(newItem) {
+      localStorage.setItem(localItem, JSON.stringify(newItem));
+      setState(newItem);
+    }
+    return [loc, setLoc];
+  }
+
+  const [useFavProperties, setFavProperties] = useLocalState();
   const [useProperties, setUseProperties] = useState([]);
-  const [useFavProperties, setFavProperties] = useState([]);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   useEffect(() => {

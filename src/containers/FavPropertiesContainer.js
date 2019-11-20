@@ -20,7 +20,7 @@ const FavPropertyContainer = () => {
   const isListOpen = context.isDialogOpen;
   const toggleDialog = context.toggleDialog;
   const changeFavProperties = context.toggleFav;
-  const favPropsNumber = context.favProperties.length;
+  const favPropsNumber = context.favProperties && context.favProperties.length;
   const isFavProperties = favPropsNumber > 0;
 
   return (
