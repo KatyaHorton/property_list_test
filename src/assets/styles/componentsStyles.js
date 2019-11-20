@@ -13,7 +13,7 @@ export const styles = makeStyles(() => ({
   },
 
   containerSmall: {
-    width: "130px",
+    width: "105px",
     height: "90px",
     backgroundColor: "#f9f9f9",
     boxShadow: "2px 2px 4px -2px #999",
@@ -61,8 +61,8 @@ export const styles = makeStyles(() => ({
   },
   sidebarRight: {
     position: "fixed",
-    right: 0,
-    top: 0,
+    right: "5px",
+    top: "5px",
     padding: "10px 3px",
     height: "auto",
     width: "130px",
@@ -149,8 +149,11 @@ export const styles = makeStyles(() => ({
     justifyContent: "center",
     position: "relative",
     top: "50px",
-    margin: "5px",
-    padding: "5px"
+    margin: "5px 5px 50px 5px",
+    padding: "5px",
+    "@media screen and (min-width: 412px)": {
+      margin: "5px 5px 70px 5px"
+    }
   },
   liProperties: {
     listStyle: "none",
@@ -184,5 +187,20 @@ export const styles = makeStyles(() => ({
     width: "100%",
     height: "40px",
     zIndex: 10
+  },
+  mainFooter: {
+    position: "fixed",
+    bottom: 0,
+    padding: "15px",
+    backgroundColor: "#085963",
+    width: "100%",
+    height: "25px",
+    zIndex: 10,
+    display: "flex",
+    alighItems: "flex-end",
+    justifyContent: "flex-end",
+    "@media screen and (min-width: 412px)": {
+      height: "40"
+    }
   }
 }));

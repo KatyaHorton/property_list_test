@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { PropertiesContext } from "../context/propertiesContext";
 import { PropertyList } from "../components/PropertyList";
 import { MainHeader } from "../components/MainHeader";
+import { MainFooter } from "../components/MainFooter";
 
 const PropertyContainer = () => {
   const context = useContext(PropertiesContext);
@@ -19,6 +20,7 @@ const PropertyContainer = () => {
           changeFavProperties={changeFavProperties}
         />
       )}
+      <MainFooter />
     </article>
   );
 };
