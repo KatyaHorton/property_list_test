@@ -12,11 +12,12 @@ import { styles } from "../assets/styles/componentsStyles";
 import { FavHeartButton } from "./Buttons";
 
 export const PropertyList = ({ properties, changeFavProperties }) => {
+  const classes = styles();
   return (
-    <ul style={styles.ulProperties}>
+    <ul className={classes.ulProperties}>
       {properties &&
         properties.map(property => (
-          <li style={styles.liProperties}>
+          <li className={classes.liProperties}>
             <PropertySectionLarge>
               <ImageComponent
                 src={property.propertyPhoto}

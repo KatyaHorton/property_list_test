@@ -2,32 +2,42 @@ import React from "react";
 import { styles } from "../assets/styles/componentsStyles";
 
 export const PropertySectionLarge = ({ children }) => {
-  return <div style={styles.propertySectionLarge}>{children}</div>;
+  const classes = styles();
+  return <div className={classes.propertySectionLarge}>{children}</div>;
 };
 export const PropertySecrionSmall = ({ children }) => {
-  return <div style={styles.containerSmall}>{children}</div>;
+  const classes = styles();
+  return <div className={classes.containerSmall}>{children}</div>;
 };
 export const RowCenterSpaceBetween = ({ children }) => {
-  return <div style={styles.rowCntereSpaceBetween}>{children}</div>;
+  const classes = styles();
+  return <div className={classes.rowCntereSpaceBetween}>{children}</div>;
 };
 export const ColumnCenterSpaceAround = ({ children }) => {
-  return <div style={styles.columnCntereSpaceBetween}>{children}</div>;
+  const classes = styles();
+  return <div className={classes.columnCntereSpaceBetween}>{children}</div>;
 };
 export const RightSideBar = ({ children }) => {
-  return <sidebar style={styles.sidebarRight}>{children}</sidebar>;
+  const classes = styles();
+  return <sidebar className={classes.sidebarRight}>{children}</sidebar>;
 };
 export const TitleText = ({ children }) => {
-  return <h1 style={styles.lightColorText}>{children}</h1>;
+  const classes = styles();
+  return <h1 className={classes.lightColorText}>{children}</h1>;
 };
 export const SubTitleText = ({ children }) => {
-  return <h4 style={styles.lightColorText}>{children}</h4>;
+  const classes = styles();
+  return <h4 className={classes.lightColorText}>{children}</h4>;
 };
 export const MainText = ({ children }) => {
-  return <p style={styles.blackText}>{children}</p>;
+  const classes = styles();
+  return <p className={classes.blackText}>{children}</p>;
 };
 export const LightText = ({ children }) => {
-  return <p style={styles.lightText}>{children}</p>;
+  const classes = styles();
+  return <p className={classes.lightText}>{children}</p>;
 };
 export const AttentionText = ({ children }) => {
-  return <h3 style={styles.attentionText}>{children}</h3>;
+  const classes = styles();
+  return <h3 className={classes.attentionText}>{children}</h3>;
 };

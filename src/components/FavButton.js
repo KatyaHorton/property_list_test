@@ -9,14 +9,15 @@ export const FavButton = ({
   isFavProperties,
   favPropsNumber
 }) => {
+  const classes = styles();
   return (
-    <button style={styles.favButton} onClick={() => onClick()}>
+    <button className={classes.favButton} onClick={() => onClick()}>
       <RowCenterSpaceBetween>
         <SVGHeartGreen />
         <RowCenterSpaceBetween>
-          <p>FAVOURITES</p>
+          <p className={classes.favButtonText}>FAVOURITES</p>
           {isFavProperties && (
-            <p style={styles.numberCounter}>{favPropsNumber}</p>
+            <p className={classes.numberCounter}>{favPropsNumber}</p>
           )}
         </RowCenterSpaceBetween>
         {isListOpen ? <ArrowDown /> : <ArrowUp />}
