@@ -17,6 +17,10 @@ export const ColumnCenterSpaceAround = ({ children }) => {
   const classes = styles();
   return <div className={classes.columnCntereSpaceBetween}>{children}</div>;
 };
+export const ColumnStartSpaceBetween = ({ children }) => {
+  const classes = styles();
+  return <div className={classes.columnStartSpaceBetween}>{children}</div>;
+};
 export const RightSideBar = ({ children }) => {
   const classes = styles();
   return <sidebar className={classes.sidebarRight}>{children}</sidebar>;

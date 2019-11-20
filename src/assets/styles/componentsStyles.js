@@ -59,6 +59,12 @@ export const styles = makeStyles(() => ({
     alignItems: "center",
     justifyContent: "space-around"
   },
+  columnStartSpaceBetween: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    justifyContent: "space-between"
+  },
   sidebarRight: {
     position: "fixed",
     right: "5px",
