@@ -40,8 +40,6 @@ export const changeFavArrtibute = (arr, id, fn, fn2) => {
 };
 
 export const changeFavAttributeIfLoc = (arr, arr2, fn) => {
-  console.log("arr", arr);
-  console.log("arr2", arr2);
   const result = arr.map(obj => {
     let item;
     arr2 &&
