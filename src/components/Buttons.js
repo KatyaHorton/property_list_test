@@ -4,8 +4,9 @@ import { styles } from "../assets/styles/componentsStyles";
 import { SVGHeartBlack, SVGHeartRed } from "../assets/svg/heart";
 
 export const CloseButton = ({ onClick }) => {
+  const classes = styles();
   return (
-    <button style={styles.closeButton} onClick={onClick}>
+    <button className={classes.closeButton} onClick={onClick}>
       <Close />
     </button>
   );

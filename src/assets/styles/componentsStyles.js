@@ -1,4 +1,6 @@
-export const styles = {
+import { makeStyles } from "@material-ui/core";
+
+export const styles = makeStyles(() => ({
   closeButton: {
     border: "1px solid #999",
     backgroundColor: "transparent",
@@ -148,6 +150,10 @@ export const styles = {
     backgroundColor: "white",
     width: "100%",
     height: "40px",
-    zIndex: 10
+    zIndex: 10,
+    backgroundColor: "pink",
+    "@media screen and (min-width: 500px)": {
+      backgroundColor: "red"
+    }
   }
-};
+}));
